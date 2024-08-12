@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function getImage(query, page) {
   const BASE_URL = "https://api.unsplash.com";
-  const END_POINT = "/photos/";
+  const END_POINT = "/search/photos";
   const url = BASE_URL + END_POINT;
   const params = {
     query: query,
