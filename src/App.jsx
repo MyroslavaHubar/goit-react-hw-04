@@ -6,6 +6,7 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import ImageModal from "./components/ImageModal/ImageModal";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import Loader from "./components/Loader/Loader";
+i;
 
 function App() {
   const [images, setImages] = useState([]);

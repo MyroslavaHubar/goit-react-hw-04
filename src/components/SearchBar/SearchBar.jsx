@@ -39,7 +39,7 @@ function SearchBar({ onSubmit }) {
         <button className={css.headerBtn} type="submit">
           Search
         </button>
-        <Toaster position="bottom-right" reverseOrder={false} />
+        <Toaster position="top-right" reverseOrder={false} />
       </form>
     </header>
   );
