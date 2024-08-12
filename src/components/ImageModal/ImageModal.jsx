@@ -18,23 +18,38 @@ function ImageModal({ image, closeModal, modalIsOpen }) {
           backgroundColor: "rgba(171, 169, 169, 0.8)",
         },
         content: {
-          top: "50%",
-          left: "50%",
-          right: "auto",
-          bottom: "auto",
-          marginRight: "-50%",
-          transform: "translate(-50%, -50%)",
+          // top: "50%",
+          // left: "50%",
+          // right: "auto",
+          // bottom: "auto",
+          // marginRight: "-50%",
+          // transform: "translate(-50%, -50%)",
+          // overflow: "hidden",
+          // maxWidth: "70%",
+          // maxHeight: "80%",
+          // display: "flex",
+          // flexDirection: "column",
+          top: "5%",
+          bottom: "5%",
+          left: "5%",
+          right: "5%",
+          marginRight: "auto",
+          marginLeft: "auto",
+          transform: "none",
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          maxHeight: "90vh", // Высота окна модального
+          maxWidth: "90vw", // Ширина окна модального
         },
       }}
     >
-      <img
-        className={css.image}
-        src={image.urls.regular}
-        alt={image.alt_description}
-      />
-      <div className={css.imageModalInfo}>
-        <p>Author: {image.user?.name || "Unknown"}</p>
-        <p>Description: {image.description || "No description available"}</p>
+      <div className={css.imageModalContainer}>
+        <img
+          className={css.image}
+          src={image.urls.regular}
+          alt={image.alt_description}
+        />
       </div>
     </Modal>
   );

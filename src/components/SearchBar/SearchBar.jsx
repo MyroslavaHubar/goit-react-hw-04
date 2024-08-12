@@ -32,8 +32,8 @@ function SearchBar({ onSubmit }) {
           type="text"
           value={value}
           onChange={handleInputChange}
-          // autocomplete="off"
-          // autofocus
+          autoComplete="off"
+          autoFocus
           placeholder="Search images and photos"
         />
         <button className={css.headerBtn} type="submit">
