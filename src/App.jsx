@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import ImageModal from "./components/ImageModal/ImageModal";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -13,15 +14,19 @@ function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalImage, setModalImage] = useState(null);
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchImages() {
       try {
+        setLoading(true);
         const result = await getImage(query, page);
         setHasMore(result.results.length > 0);
         setImages((prevImages) => [...prevImages, ...result.results]);
       } catch (err) {
         console.log(err);
+      } finally {
+        setLoading(false);
       }
     }
     if (query) {
@@ -53,7 +58,7 @@ function App() {
   return (
     <>
       <SearchBar onSubmit={handleSubmit} />
-
+      {loading && <Loader />}
       {images.length > 0 && (
         <ImageGallery images={images} openModal={openModal} />
       )}
