@@ -18,17 +18,6 @@ function ImageModal({ image, closeModal, modalIsOpen }) {
           backgroundColor: "rgba(171, 169, 169, 0.8)",
         },
         content: {
-          // top: "50%",
-          // left: "50%",
-          // right: "auto",
-          // bottom: "auto",
-          // marginRight: "-50%",
-          // transform: "translate(-50%, -50%)",
-          // overflow: "hidden",
-          // maxWidth: "70%",
-          // maxHeight: "80%",
-          // display: "flex",
-          // flexDirection: "column",
           top: "5%",
           bottom: "5%",
           left: "5%",
@@ -39,8 +28,8 @@ function ImageModal({ image, closeModal, modalIsOpen }) {
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
-          maxHeight: "90vh", // Высота окна модального
-          maxWidth: "90vw", // Ширина окна модального
+          maxHeight: "90vh",
+          maxWidth: "90vw",
         },
       }}
     >
