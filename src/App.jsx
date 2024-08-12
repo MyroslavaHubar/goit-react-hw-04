@@ -6,7 +6,7 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import ImageModal from "./components/ImageModal/ImageModal";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import Loader from "./components/Loader/Loader";
-i;
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -16,6 +16,7 @@ function App() {
   const [modalImage, setModalImage] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchImages() {
@@ -24,8 +25,8 @@ function App() {
         const result = await getImage(query, page);
         setHasMore(result.results.length > 0);
         setImages((prevImages) => [...prevImages, ...result.results]);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -40,6 +41,7 @@ function App() {
     setPage(1);
     setImages([]);
     setHasMore(true);
+    setError(null);
   };
 
   function openModal(image) {
@@ -60,6 +62,7 @@ function App() {
     <>
       <SearchBar onSubmit={handleSubmit} />
       {loading && <Loader />}
+      {error && <ErrorMessage message={error} />}
       {images.length > 0 && (
         <ImageGallery images={images} openModal={openModal} />
       )}
