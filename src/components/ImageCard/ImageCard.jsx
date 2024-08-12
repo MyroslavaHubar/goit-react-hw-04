@@ -6,7 +6,7 @@ function ImageCard({ small, description, regular, openModal }) {
       className={css.modalImg}
       src={small}
       alt={description}
-      onClick={() => openModal(regular, description)}
+      onClick={() => openModal({ urls: { regular }, description })}
     />
   );
 }
